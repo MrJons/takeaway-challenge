@@ -21,11 +21,7 @@ describe Main do
 
   context "#show_menu" do
 
-    it "recognises ability to call options" do
-      expect(user).to respond_to(:show_menu)
-    end
-
-    it "should show menu" do
+    it "should show menu on request." do
       expect(user.show_menu).to eq(italian.menu)
     end
   end
