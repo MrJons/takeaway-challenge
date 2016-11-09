@@ -1,5 +1,8 @@
 ### Takeaway Challenge
 
+[![Build Status](https://travis-ci.org/MrJons/takeaway-challenge.svg?branch=master)](https://travis-ci.org/MrJons/takeaway-challenge.svg?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/MrJons/takeaway-challenge/badge.svg?branch=master)](https://coveralls.io/github/MrJons/takeaway-challenge?branch=master)
+
 ##### How to run this code in the terminal:
 
 * Clone this repo
