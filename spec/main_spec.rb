@@ -3,11 +3,9 @@ require 'main'
 describe Main do
 
   let(:user) {described_class.new}
-  # let(:show_menu) {double :show_menu}
-  # let(:basket) {double :basket, :add_to_cart}
-  # let(:view_basket) {double :view_basket, current_basket: {:Olives=>2.99}}
-  # let(:select_dish) {double :select_dish, current_basket: {:Olives=>2.99}}
-  let(:basket) {class_double(Basket)}
+  let(:basket) {spy :basket, :add_to_cart => nil, :basket_status => nil}
+  let(:text) {spy :text, :send => nil}
+  let(:user_with_douled_inputs) {described_class.new(text, basket)}
   let(:italian) {double :italian, menu: {
     :Olives => 2.99,
     :Bruschetta => 3.99,
@@ -40,15 +38,24 @@ describe Main do
 
   context "#select_dish" do
 
-    let(:basket) {double('Basket', :add_to_cart => nil)}
-    it "selected dish is " do
-      # basket = instance_double("Basket")
+    it "calls add_to_cart method on basket instance" do
+      user_with_douled_inputs.select_dish("Olives")
+      expect(basket).to have_received(:add_to_cart).with("Olives")
+    end
+  end
 
-      user.select_dish("Olives")
+  context "#view_basket" do
 
-      expect(basket).to receive(:add_to_cart).with("Olives")
+    it "calls basket_status method on basket instance" do
+      user_with_douled_inputs.view_basket
+      expect(basket).to have_received(:basket_status)
+    end
+  end
 
-      # allow_any_instance_of(basket).to receive(:add_to_cart).with("Olives")
+  context "#place_order" do
+    it "calls send method on text instance" do
+      user_with_douled_inputs.place_order
+      expect(text).to have_received(:send)
     end
   end
 
