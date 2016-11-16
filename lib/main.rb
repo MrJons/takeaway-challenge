@@ -33,8 +33,8 @@ class Main
     @basket.basket_status
   end
 
-  def place_order
-    @text.send
+  def place_order(number)
+    @text.send(number)
   end
 
 end

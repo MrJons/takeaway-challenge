@@ -54,17 +54,8 @@ describe Main do
 
   context "#place_order" do
     it "calls send method on text instance" do
-      user_with_douled_inputs.place_order
-      expect(text).to have_received(:send)
+      user_with_douled_inputs.place_order(12345)
+      expect(text).to have_received(:send).with(12345)
     end
   end
-
-  # it "recognises ability to view basket" do
-  #   expect(user).to respond_to(:view_basket)
-  # end
-  #
-  # it "recognises ability to place order" do
-  #   expect(user).to respond_to(:place_order)
-  # end
-
 end

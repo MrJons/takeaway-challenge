@@ -9,9 +9,9 @@ class Text
     @client = twilio_client.new(ENV["ACCOUNT_SID"], ENV["AUTH_TOKEN"])
   end
 
-  def send
+  def send(number)
     @client.messages.create(
-      :to => ENV["NUMBER"],
+      :to => number,
       :from => '+447481344824', #Twilio provided number
       :body => message
       )
