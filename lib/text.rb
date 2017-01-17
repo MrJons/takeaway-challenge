@@ -12,7 +12,7 @@ class Text
   def send(number)
     @client.messages.create(
       :to => number,
-      :from => '+447481344824', #Twilio provided number
+      :from => '+441163263642', #Twilio provided number
       :body => message
       )
   end
@@ -21,7 +21,7 @@ class Text
 
   def message
     @time = Time.new + (60 * 60) #Current time plus 1 hour
-    "Order confirmation. Thank you, your order has been placed and will arrive at #{@time.hour}:#{@time.min}."
+    "Order confirmation. Thank you, your order has been placed and will arrive at #{@time.hour}:#{"%02d" % @time.min}."
   end
 
 end
